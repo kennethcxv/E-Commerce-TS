@@ -1,26 +1,31 @@
 import { useSelector } from "react-redux"
 import ProductsSearchBar from "../components/ProductsSearchBar"
-import { useState } from "react"
+import Button from "@mui/material/Button"
+import { useDispatch } from "react-redux"
+import { actionAddToCart } from "../redux/slices/addToCartSlice"
+import type { Product } from "../types/Product"
 
 const Products = () => { 
 
+    const filteredProducts = useSelector((state) => state.products.filteredProducts)
+    const dispatch = useDispatch()    
 
-    const apiProducts = useSelector((state) => state.products.products)
-      const [SearchBar,setSearchBar] = useState<string>("")
+const handleAddToCart = (product:Product) => {
+  console.log("before dispatch", product)
+  dispatch(actionAddToCart(product))
+}
 
-      const filteredProducts = apiProducts.filter((item) => {
-        return item.title.includes(SearchBar)
-      })
-
-    console.log(apiProducts)
     return (
     <>
-    <ProductsSearchBar SearchBar={SearchBar} setSearchBar={setSearchBar} />
-      
+    <ProductsSearchBar  />
       {
         filteredProducts.map((item)=>{
           return(
+            <>
           <p>{item.title}</p>
+          <img src={item.image}></img>
+          <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>          
+          </>
           )
         })
       }

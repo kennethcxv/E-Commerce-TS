@@ -1,25 +1,64 @@
-import AppBar from "@mui/material/AppBar"
-import Toolbar from "@mui/material/Toolbar"
-import Typography from "@mui/material/Typography"
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Link } from "react-router-dom"
+import { useSelector } from "react-redux";
+
 
 const NavBar = () => {
+
+  const cartCount = useSelector((state) => state.CartSlice.cartCount)
   return (
     <>
-    <AppBar position="fixed">
-      <Toolbar >
-        <Box sx={{ display:"flex" ,gap:5}}>
-        <Typography sx={{"&:hover": {opacity: 0.8,},cursor:"pointer"}} variant="h6" component="a" href="/products">Products</Typography>
-        <Typography sx={{"&:hover": {opacity: 0.8,},cursor:"pointer"}} variant="h6" component="a" href="/contact">Contact</Typography>
-        <Typography sx={{"&:hover": {opacity: 0.8,},cursor:"pointer"}} variant="h6" component="a" href="/cart">Cart</Typography>
-        <Typography sx={{"&:hover": {opacity: 0.8,},cursor:"pointer"}} variant="h6" component="a" href="/checkout">Checkout</Typography>
-        </Box>
-      </Toolbar>
+      <AppBar position="fixed">
+        <Toolbar>
+          <Box sx={{ display: "flex", gap: 5 }}>
+            <Typography component={Link} to="/products"
+              sx={{ "&:hover": { opacity: 0.8 }, cursor: "pointer" }}
+              variant="h6"
 
-    </AppBar>
-    <Toolbar />
+            >
+              Products
+            </Typography>
+            <Typography component={Link} to="/contact"
+              sx={{ "&:hover": { opacity: 0.8 }, cursor: "pointer" }}
+              variant="h6"
+
+            >
+              Contact
+            </Typography>
+            <Typography component={Link} to="/cart"
+
+              sx={{
+                "&:hover": { opacity: 0.8 },
+                cursor: "pointer",
+                alignItems: "right",
+              }}
+              variant="h6"
+            >
+              <Box sx={{position:"relative"}}>
+                <ShoppingCartOutlinedIcon />
+                <span style={{backgroundColor:"black", fontSize:"12px", position:"absolute", right:"-1px", borderRadius:"50%", height:"14px", width:"14px", textAlign:"center"}}>{cartCount}</span>
+              </Box>
+            </Typography>
+           (
+              <Typography component={Link} to="/checkout"
+                sx={{ "&:hover": { opacity: 0.8 }, cursor: "pointer" }}
+                variant="h6"
+              >
+                Checkout
+              </Typography>
+              )
+            
+
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
     </>
-    )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

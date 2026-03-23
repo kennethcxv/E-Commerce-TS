@@ -17,7 +17,6 @@ function App() {
 
   return (
     <>
-      <h1>Hello</h1>
       <Routes>
         <Route path='products' element={<Products />}  />
         <Route path='checkout' element={<Checkout />}  />
