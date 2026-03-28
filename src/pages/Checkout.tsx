@@ -1,7 +1,12 @@
+import Button from "@mui/material/Button"
+
 const Checkout = () => {
   return (
-    <div>Checkout</div>
-  )
+      <>
+        <Button variant="contained">Checkout</Button>
+      </>
+
+    )
 }
 
 export default Checkout

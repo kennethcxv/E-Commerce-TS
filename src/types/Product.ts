@@ -11,4 +11,5 @@ export interface Product{
         rate:number;
         count:number;
     }
+    quantity:number;
 }

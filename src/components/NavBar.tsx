@@ -43,16 +43,6 @@ const NavBar = () => {
                 <span style={{backgroundColor:"black", fontSize:"12px", position:"absolute", right:"-1px", borderRadius:"50%", height:"14px", width:"14px", textAlign:"center"}}>{cartCount}</span>
               </Box>
             </Typography>
-           (
-              <Typography component={Link} to="/checkout"
-                sx={{ "&:hover": { opacity: 0.8 }, cursor: "pointer" }}
-                variant="h6"
-              >
-                Checkout
-              </Typography>
-              )
-            
-
           </Box>
         </Toolbar>
       </AppBar>
