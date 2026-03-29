@@ -3,11 +3,12 @@ import Checkout from "./Checkout"
 import Button from "@mui/material/Button"
 import { actionIncrementQuantity } from "../redux/slices/addToCartSlice"
 import { actionDecrementQuantity } from "../redux/slices/addToCartSlice"
+import { actionDeleteItem } from "../redux/slices/addToCartSlice"
 
 const Cart = () => {
   const addToCart = useSelector((state) => state.CartSlice.addToCart)
   const cartCount = useSelector((state) => state.CartSlice.cartCount)
-  
+
 
   const dispatch = useDispatch()
 
@@ -18,6 +19,11 @@ const Cart = () => {
   const handleDecrementQuantity = (itemID:number) => {
     dispatch(actionDecrementQuantity(itemID))
   }
+
+  const handleDelete = (itemID:number) => {
+    dispatch(actionDeleteItem(itemID))
+  }
+
   return (
     <>
       <div>Cart</div>
@@ -34,6 +40,7 @@ const Cart = () => {
             <Button onClick={() => handleDecrementQuantity(item.id)} variant="contained">-</Button>
             <p>Quantity:{item.quantity}</p>            
             <Button onClick={() => handleIncrementQuantity(item.id)} variant="contained">+</Button>
+            <Button onClick={() => handleDelete(item.id)}>Delete</Button>
             </>
           )
         })
