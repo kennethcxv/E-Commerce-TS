@@ -49,6 +49,15 @@ const NavBar = () => {
 
 
               </Box>
+
+            </Typography>
+            <Typography>
+              {
+                cartCount > 10 &&                <span>
+                settings
+              </span>
+              }
+
             </Typography>
           </Box>
         </Toolbar>
