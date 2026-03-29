@@ -22,25 +22,52 @@ const addToCartSlice = createSlice({
         for(let i = 0; i < state.addToCart.length; i++){
           if(state.addToCart[i].id === action.payload.id){
             state.addToCart[i].quantity = state.addToCart[i].quantity + 1 
-            state.addToCart[i].price = state.addToCart[i].price * state.addToCart[i].quantity 
             alreadyInCart = true
           }
         }
           if(alreadyInCart === false){
             state.addToCart.push({...action.payload,quantity:1})
+          } 
+            state.cartCount = state.cartCount + 1
+    },
+    actionIncrementQuantity:(state,action) => {
+      for(let i = 0; i < state.addToCart.length; i++){
+        console.log("This is action.payload",action.payload)
+        if(state.addToCart[i].id === action.payload){
+          console.log("Increment Quantity is running")
+            state.addToCart[i].quantity = state.addToCart[i].quantity + 1 
+
           }
-        
+        // We loop over and trying to find the item we are going to find the quantity of
+          
+        }
+          state.cartCount = state.cartCount + 1
 
-           // Need to compare the item in the array of add to cart to another item in the array of add to cart to see if they are the same
+    },
+    actionDecrementQuantity:(state,action) => {
+      // We need to have a map
+      state.addToCart = state.addToCart.map((item) => {
+        if(item.id === action.payload){  
+          console.log("Decrement Quantity is running")
+            item.quantity = item.quantity - 1
+        }
+        return item
+      })
+      state.cartCount = state.cartCount - 1
+          state.addToCart = state.addToCart.filter((item) => {
+            return item.quantity > 0
+            // We need to use this filter since it returns an empty array so we push the entire array except for the id we
+          })
+    
+                    // We need to remove an item from an array. We can use filter 
+          // Filter gives you an empty array 
+        // We loop over and trying to find the item we are going to find the quantity of
+    },
 
-
-                
-
-        state.cartCount = state.cartCount + 1
-    }
+    
   }
 });
 
-export const {actionAddToCart} = addToCartSlice.actions
+export const {actionAddToCart, actionIncrementQuantity,actionDecrementQuantity} = addToCartSlice.actions
 
 export default addToCartSlice.reducer

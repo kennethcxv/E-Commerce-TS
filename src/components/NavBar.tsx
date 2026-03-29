@@ -39,8 +39,15 @@ const NavBar = () => {
               variant="h6"
             >
               <Box sx={{position:"relative"}}>
+
                 <ShoppingCartOutlinedIcon />
-                <span style={{backgroundColor:"black", fontSize:"12px", position:"absolute", right:"-1px", borderRadius:"50%", height:"14px", width:"14px", textAlign:"center"}}>{cartCount}</span>
+                { 
+                  cartCount > 0 && <span style={{backgroundColor:"black", fontSize:"12px", position:"absolute", right:"-1px", borderRadius:"50%", height:"14px", width:"14px", textAlign:"center"}}>
+                  { cartCount}
+                </span>
+                }
+
+
               </Box>
             </Typography>
           </Box>

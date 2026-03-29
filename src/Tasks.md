@@ -13,3 +13,7 @@ Features needed to add
 // Make it so that if the user places 2 of the same item then it should just appear with a quantity next to it
 
 // Make it so that you also have the price and if the quantity is 2 the price is doubled etc
+
+Show another navItem if the cart Item length is over 10
+
+Make a delete button for the cart items
