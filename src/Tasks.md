@@ -17,3 +17,16 @@ Features needed to add
 Show another navItem if the cart Item length is over 10
 
 Make a delete button for the cart items
+
+
+
+Make it so the delete button also changes the cart count
+
+Make the items in cart a grid
+
+Add a button to add to cart fomr the details page and style it
+
+We will have an order button and on clicking the button the order will be placed and this means that the cart details
+and the user details will be stored as an order 
+
+And clear the cart

@@ -53,7 +53,7 @@ const NavBar = () => {
             </Typography>
             <Typography>
               {
-                cartCount > 10 &&                <span>
+                cartCount > 10 && <span>
                 settings
               </span>
               }

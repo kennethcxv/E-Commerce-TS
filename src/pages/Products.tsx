@@ -4,6 +4,7 @@ import Button from "@mui/material/Button"
 import { useDispatch } from "react-redux"
 import { actionAddToCart } from "../redux/slices/addToCartSlice"
 import type { Product } from "../types/Product"
+import { Link } from "react-router"
 
 const Products = () => { 
 
@@ -24,7 +25,9 @@ const handleAddToCart = (product:Product) => {
             <>
           <p>{item.title}</p>
           <img src={item.image}></img>
-          <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>          
+          <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>    
+          <Link to={`/products/${item.id}`}>View Details</Link>
+          
           </>
           )
         })

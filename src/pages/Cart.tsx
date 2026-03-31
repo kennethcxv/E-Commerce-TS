@@ -1,9 +1,9 @@
 import { useSelector,useDispatch } from "react-redux"
-import Checkout from "./Checkout"
 import Button from "@mui/material/Button"
 import { actionIncrementQuantity } from "../redux/slices/addToCartSlice"
 import { actionDecrementQuantity } from "../redux/slices/addToCartSlice"
 import { actionDeleteItem } from "../redux/slices/addToCartSlice"
+import { Link } from "react-router"
 
 const Cart = () => {
   const addToCart = useSelector((state) => state.CartSlice.addToCart)
@@ -41,11 +41,17 @@ const Cart = () => {
             <p>Quantity:{item.quantity}</p>            
             <Button onClick={() => handleIncrementQuantity(item.id)} variant="contained">+</Button>
             <Button onClick={() => handleDelete(item.id)}>Delete</Button>
+
+
             </>
           )
         })
       }
-      <Checkout />
+
+      {
+        cartCount > 0 &&  <Link to="/checkout">Checkout</Link>
+
+      }
     </>
   )
 }
