@@ -28,6 +28,7 @@ const NavBar = () => {
 
             >
               Contact
+              
             </Typography>
             <Typography component={Link} to="/cart"
 
@@ -57,7 +58,13 @@ const NavBar = () => {
                 settings
               </span>
               }
+            </Typography>
+            <Typography component={Link} to="/newProducts"
+              sx={{ "&:hover": { opacity: 0.8 }, cursor: "pointer" }}
+              variant="h6"
 
+            >
+              NewProduct
             </Typography>
           </Box>
         </Toolbar>

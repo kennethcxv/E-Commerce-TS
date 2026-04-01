@@ -21,6 +21,10 @@ Make a delete button for the cart items
 
 
 Make it so the delete button also changes the cart count
+          // on Delete button makes deletes the quantity for cart cont
+          // We grab the cart item id and then the quantity set to that id then subtract that to the cart count on delete
+
+
 
 Make the items in cart a grid
 

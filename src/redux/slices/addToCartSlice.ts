@@ -58,6 +58,7 @@ const addToCartSlice = createSlice({
             return item.quantity > 0
             // We need to use this filter since it returns an empty array so we push the entire array except for the id we
           })
+          
 
           // We need to remove an item from an array. We can use filter 
           // Filter gives you an empty array 
@@ -68,6 +69,10 @@ const addToCartSlice = createSlice({
           state.addToCart = state.addToCart.filter((item) => {
             return item.id !== action.payload
           })
+          
+          // on Delete button makes deletes the quantity for cart cont
+          // We grab the cart item id and then the quantity set to that id then subtract that to the cart count on delete
+
         }
   }
 });
