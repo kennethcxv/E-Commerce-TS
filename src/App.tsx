@@ -5,16 +5,16 @@ import Checkout from './pages/Checkout'
 import Contact from './pages/Contact'
 import Cart from './pages/Cart'
 import { useEffect } from 'react'
-import { fetchNewProducts, fetchProducts } from './redux/slices/productsSlice'
+import { fetchNewProducts } from './redux/slices/productsSlice'
 import {useDispatch} from 'react-redux'
-// import ProductDetails from './pages/ProductDetails'
+import ProductDetails from './pages/ProductDetails'
 import NewProducts from './pages/NewProducts'
 import NewProductDetails from './pages/NewProductDetails'
 
 function App() {
   const dispatch = useDispatch()    
         useEffect(() => {
-            dispatch(fetchProducts()) 
+            // dispatch(fetchProducts()) 
             dispatch(fetchNewProducts()) 
         },[dispatch]
     )
@@ -26,7 +26,7 @@ function App() {
         <Route path='checkout' element={<Checkout />}  />
         <Route path='contact' element={<Contact />}  />
         <Route path='cart' element={<Cart />}  />
-        {/* <Route path='products/:id'  element={<ProductDetails />}  /> */}
+        <Route path='products/:id'  element={<ProductDetails />}  />
         <Route path='newProducts'  element={<NewProducts />}  />
         <Route path='newProducts/:slug' element={<NewProductDetails />} />
 
