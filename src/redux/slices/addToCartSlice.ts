@@ -5,10 +5,12 @@ import type { Product } from "../../types/Product";
 interface CartState {
   addToCart: Product[];
   cartCount:number;
+  cartTotal:number;
 }
 
 const initialState:CartState = {
     addToCart: [],
+    cartTotal:0,
     cartCount:0,
 }
 
@@ -30,18 +32,20 @@ const addToCartSlice = createSlice({
             state.addToCart.push({...action.payload,quantity:1})
           } 
             state.cartCount = state.cartCount + 1
-    },
+            state.cartTotal = parseFloat((state.cartTotal + action.payload.price).toFixed(3))   
+          },
     actionIncrementQuantity:(state,action) => {
-      for(let i = 0; i < state.addToCart.length; i++){
-        console.log("This is action.payload",action.payload)
-        if(state.addToCart[i].id === action.payload){
+      state.addToCart = state.addToCart.map((item) => {
+        if(item.id === action.payload){  
           console.log("Increment Quantity is running")
-            state.addToCart[i].quantity = state.addToCart[i].quantity + 1
-          }
-        // We loop over and trying to find the item we are going to find the quantity of
-          
+            item.quantity = item.quantity + 1
+            state.cartTotal = parseFloat((state.cartTotal + item.price).toFixed(3))
         }
+        return item
+      })
+        // We loop over and trying to find the item we are going to find the quantity of
           state.cartCount = state.cartCount + 1
+
 
     },
     actionDecrementQuantity:(state,action) => {
@@ -50,9 +54,12 @@ const addToCartSlice = createSlice({
         if(item.id === action.payload){  
           console.log("Decrement Quantity is running")
             item.quantity = item.quantity - 1
+            state.cartTotal = parseFloat((state.cartTotal - item.price).toFixed(3))
+
         }
         return item
       })
+
       state.cartCount = state.cartCount - 1
           state.addToCart = state.addToCart.filter((item) => {
             return item.quantity > 0
@@ -67,8 +74,13 @@ const addToCartSlice = createSlice({
         actionDeleteItem:(state,action) => {
           // We have the id of the item we want to delete now we neeed to make it so that if the button is pressed it filters it out
           state.addToCart = state.addToCart.filter((item) => {
+            if(item.id === action.payload){
+               state.cartTotal = parseFloat(( state.cartTotal - (item.price * item.quantity) ).toFixed(3))
+               state.cartCount = state.cartCount - item.quantity
+            }
             return item.id !== action.payload
           })
+
           
           // on Delete button makes deletes the quantity for cart cont
           // We grab the cart item id and then the quantity set to that id then subtract that to the cart count on delete

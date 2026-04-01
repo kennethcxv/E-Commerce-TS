@@ -11,6 +11,7 @@ import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 const Cart = () => {
   const addToCart = useSelector((state) => state.CartSlice.addToCart);
   const cartCount = useSelector((state) => state.CartSlice.cartCount);
+  const cartTotal = useSelector((state) => state.CartSlice.cartTotal);
 
   const dispatch = useDispatch();
 
@@ -25,6 +26,8 @@ const Cart = () => {
   const handleDelete = (itemID: number) => {
     dispatch(actionDeleteItem(itemID));
   };
+
+  
 
   return (
     <>
@@ -132,9 +135,6 @@ const Cart = () => {
           </>
         );
       })}
-      {addToCart.map((item) => {
-        return (
-          <>
       <Box sx={{display:"flex"}}>
             <Box sx={{border:1, width:"100%", ml:20, mr:3, mt:6,borderColor:"lightgray",  borderRadius:2}}>
               <Box sx={{display:"flex", justifyContent:"space-between", mt:2,mb:1, mx:2}}>
@@ -149,17 +149,14 @@ const Cart = () => {
             <Box sx={{border:1, width:"100%", mr:20, mt:6,borderColor:"lightgray",  borderRadius:2}}>
               <Box sx={{display:"flex", justifyContent:"space-between", mt:2,mb:1, mx:2}}>
                 <Typography sx={{color:"gray",  }}>SubTotal</Typography>
-                <Typography sx={{ color:"black"}}> {(item.price * item.quantity).toFixed(2)}</Typography>
+                <Typography sx={{ color:"black"}}>{cartTotal}</Typography>
                 </Box>
                <Box sx={{display:"flex", justifyContent:"space-between", mb:2, mx:2}}>
-                <Typography sx={{color:"gray"}}>Delivery</Typography>
-                <Typography sx={{color:"black"}}>$20.00</Typography>
+                <Typography sx={{color:"gray"}}>Total</Typography>
+                <Typography sx={{color:"black"}}>{cartTotal}</Typography>
               </Box>
             </Box>
             </Box>
-                      </>
-        );
-      })}
       <Box sx={{display:"flex",  justifyContent:"center"}}>
 
 {cartCount > 0 && (
