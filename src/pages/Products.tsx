@@ -5,12 +5,13 @@ import { useDispatch } from "react-redux"
 import { actionAddToCart } from "../redux/slices/addToCartSlice"
 import type { Product } from "../types/Product"
 import { Link } from "react-router"
+import type { RootState } from "../redux/store/store";
 
 const Products = () => { 
 
-    const filteredProducts = useSelector((state) => state.products.filteredProducts)
+    // const filteredProducts = useSelector((state:RootState) => state.products.filteredProducts)
     const dispatch = useDispatch()    
-    const products = useSelector((state) => state.products.products)
+    const products = useSelector((state:RootState) => state.products.products)
 
 const handleAddToCart = (product:Product) => {
   console.log("before dispatch", product)

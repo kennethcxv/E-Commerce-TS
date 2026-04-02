@@ -5,11 +5,11 @@ import Box from "@mui/material/Box";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux";
-
+import type { RootState } from "../redux/store/store";
 
 const NavBar = () => {
 
-  const cartCount = useSelector((state) => state.CartSlice.cartCount)
+  const cartCount = useSelector((state:RootState) => state.CartSlice.cartCount)
   return (
     <>
       <AppBar position="fixed">

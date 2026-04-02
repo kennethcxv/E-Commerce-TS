@@ -10,9 +10,10 @@ import {useDispatch} from 'react-redux'
 import ProductDetails from './pages/ProductDetails'
 import NewProducts from './pages/NewProducts'
 import NewProductDetails from './pages/NewProductDetails'
+import type { AppDispatch } from './redux/store/store'
 
 function App() {
-  const dispatch = useDispatch()    
+  const dispatch = useDispatch<AppDispatch>()    
         useEffect(() => {
             // dispatch(fetchProducts()) 
             dispatch(fetchNewProducts()) 

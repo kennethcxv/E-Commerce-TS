@@ -86,6 +86,7 @@ const addToCartSlice = createSlice({
 
         },
         actionPlaceOrder:(state,action) => {
+          console.log(state)
           console.log("This is place order", action.payload)
         }
   }

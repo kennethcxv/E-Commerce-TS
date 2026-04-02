@@ -15,7 +15,7 @@ const ProductsSearchBar = () => {
 
   const dispatch = useDispatch()
 
-  const handleSearch = (e) => {
+  const handleSearch = (e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element>) => {
       setSearchBar(e.target.value)
       console.log(e.target.value,"This is the data sent to redux")
       dispatch(searchProducts(e.target.value))
