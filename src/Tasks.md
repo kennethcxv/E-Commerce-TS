@@ -17,3 +17,7 @@ Work together
 - Advanced filters on the project( slide pricing, etc)
 - Have save for later, wishlist etc
 - Deploy the site on vercel
+
+
+Create a state variable and store all the information on checkout and send that data in actionPlaceOrder i created
+Make a new slice for that as well

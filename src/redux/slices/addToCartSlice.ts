@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { Product } from "../../types/Product";
-
+import type { CartItem } from '../../types/CartItems';
 
 interface CartState {
-  addToCart: Product[];
+  addToCart: CartItem[];
   cartCount:number;
   cartTotal:number;
 }
@@ -85,10 +84,13 @@ const addToCartSlice = createSlice({
           // on Delete button makes deletes the quantity for cart cont
           // We grab the cart item id and then the quantity set to that id then subtract that to the cart count on delete
 
+        },
+        actionPlaceOrder:(state,action) => {
+          console.log("This is place order", action.payload)
         }
   }
 });
 
-export const {actionAddToCart, actionIncrementQuantity,actionDecrementQuantity,actionDeleteItem} = addToCartSlice.actions
+export const {actionAddToCart, actionIncrementQuantity,actionDecrementQuantity,actionDeleteItem,actionPlaceOrder} = addToCartSlice.actions
 
 export default addToCartSlice.reducer

@@ -7,11 +7,12 @@ import { Link } from "react-router";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import type { RootState } from "../redux/store/store";
 
 const Cart = () => {
-  const addToCart = useSelector((state) => state.CartSlice.addToCart);
-  const cartCount = useSelector((state) => state.CartSlice.cartCount);
-  const cartTotal = useSelector((state) => state.CartSlice.cartTotal);
+  const addToCart = useSelector((state:RootState) => state.CartSlice.addToCart);
+  const cartCount = useSelector((state:RootState) => state.CartSlice.cartCount);
+  const cartTotal = useSelector((state:RootState) => state.CartSlice.cartTotal);
 
   const dispatch = useDispatch();
 
