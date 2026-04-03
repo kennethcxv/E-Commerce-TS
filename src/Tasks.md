@@ -1,8 +1,6 @@
 April 2
 - Do design for products and product details
 or
-- Do Design of Checkout page and implementation of place order( a button that has a redux action and store all the orders information into an orders array )
-or
 - Add a sign up, login in page
 and
 
