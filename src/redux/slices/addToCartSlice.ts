@@ -36,6 +36,7 @@ const addToCartSlice = createSlice({
     actionIncrementQuantity:(state,action) => {
       state.addToCart = state.addToCart.map((item) => {
         if(item.id === action.payload){  
+          
           console.log("Increment Quantity is running")
             item.quantity = item.quantity + 1
             state.cartTotal = parseFloat((state.cartTotal + item.price).toFixed(3))

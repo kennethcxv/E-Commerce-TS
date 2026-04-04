@@ -1,8 +1,9 @@
 April 2
-- Do design for products and product details
+- Do product details and do light and dark mode around the entire app
 or
 - Add a sign up, login in page
 and
+
 
 Extras
 - Try to fix the TypeScript errors on the pages
@@ -14,8 +15,10 @@ Work together
 - Add a light and dark feature
 - Advanced filters on the project( slide pricing, etc)
 - Have save for later, wishlist etc
-- Deploy the site on vercel
-
 
 Create a state variable and store all the information on checkout and send that data in actionPlaceOrder i created
 Make a new slice for that as well
+
+
+Questions:
+How to use the palett for colors in mui like inherit secondary etc
