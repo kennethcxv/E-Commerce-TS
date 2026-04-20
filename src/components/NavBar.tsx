@@ -76,7 +76,9 @@ const NavBar = () => {
               NewProduct
             </Typography>
             <ThemeToggle />
+          <Link to="/profile">Profile</Link>
           </Box>
+          
         </Toolbar>
       </AppBar>
       <Toolbar />

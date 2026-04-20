@@ -11,6 +11,7 @@ import ProductDetails from './pages/ProductDetails'
 import NewProducts from './pages/NewProducts'
 import NewProductDetails from './pages/NewProductDetails'
 import type { AppDispatch } from './redux/store/store'
+import Profile from './pages/Profile'
 
 function App() {
   const dispatch = useDispatch<AppDispatch>()    
@@ -30,7 +31,7 @@ function App() {
         <Route path='products/:id'  element={<ProductDetails />}  />
         <Route path='newProducts'  element={<NewProducts />}  />
         <Route path='newProducts/:slug' element={<NewProductDetails />} />
-
+        <Route path="profile" element={<Profile />} />
       </Routes>
       
     </>

@@ -8,11 +8,14 @@ import { Link } from "react-router";
 import type { RootState } from "../redux/store/store";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import ProductsFilter from "../components/ProductsFilter";
 
 const Products = () => {
   // const filteredProducts = useSelector((state:RootState) => state.products.filteredProducts)
   const dispatch = useDispatch();
   const products = useSelector((state: RootState) => state.products.products);
+
+  const filteredProducts = useSelector((state:RootState) => state.products.filteredProducts)
 
   const handleAddToCart = (product: Product) => {
     console.log("before dispatch", product);
@@ -20,8 +23,9 @@ const Products = () => {
   };
 
   return (
-    <>
+    <div className="mt-4">
       <ProductsSearchBar />
+      <ProductsFilter />
       <Box
         sx={{
           display: "grid",
@@ -30,7 +34,7 @@ const Products = () => {
           m: 3,
         }}
       >
-        {products.map((item) => {
+        {filteredProducts.map((item) => {
           return (
             <Box>
               <Box
@@ -73,7 +77,7 @@ const Products = () => {
           );
         })}
       </Box>
-    </>
+    </div>
   );
 };
 

@@ -28,6 +28,7 @@ const ProductsSearchBar = () => {
         label="Search"
         variant="outlined"
         value={SearchBar}
+        sx={{ml:3}}
         onChange={(e) => handleSearch(e)}
       />
     </>

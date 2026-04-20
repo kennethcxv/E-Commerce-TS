@@ -32,9 +32,7 @@ interface initialStateType {
   filteredNewProducts:NewProduct[];
 }
 
-const initialState: initialStateType = {
-  // State Variables
-  products:[{
+const allProducts = [{
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       price: 109.95,
@@ -242,8 +240,12 @@ const initialState: initialStateType = {
       category: "women's clothing",
       image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_t.png",
       rating: { rate: 3.6, count: 145 },
-    },],
-  filteredProducts: [],
+    },]
+
+const initialState: initialStateType = {
+  // State Variables
+  products:allProducts,
+  filteredProducts: allProducts,
   newProducts: [],
   filteredNewProducts: [],
 };
@@ -259,7 +261,15 @@ const productsSlice = createSlice({
         return item.title.toLowerCase().includes(action.payload.toLowerCase());
       });
     },
+    filterbyCategory:(state,action) => {
+
+      state.filteredProducts = state.products.filter((item) => {
+        return item.category === action.payload
+      })
+      console.log(state.filteredProducts)
+    }
   },
+  
   
   extraReducers: (builder) => {
     // All async behaviors should go in here
@@ -290,6 +300,6 @@ const productsSlice = createSlice({
   },
 });
 
-export const { searchProducts } = productsSlice.actions;
+export const { searchProducts,filterbyCategory } = productsSlice.actions;
 
 export default productsSlice.reducer;
